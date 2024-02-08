@@ -1,10 +1,12 @@
-import express, { Application } from "express";
-import connectDatabase from "./config/database";
-import orderOfBusinessRoutes from "./routes/orderOfBusinessRoutes";
-import documentRoutes from "./routes/documentRoutes";
 import cors from "cors";
-import morgan from "morgan";
+import express, { Application } from "express";
 import helmet from "helmet";
+import morgan from "morgan";
+
+import connectDatabase from "./config/database";
+import documentRoutes from "./routes/documentRoutes";
+import minutesRoutes from "./routes/minutesRoutes";
+import orderOfBusinessRoutes from "./routes/orderOfBusinessRoutes";
 
 class App {
   public app: Application;
@@ -49,8 +51,9 @@ class App {
       });
     });
 
-    this.app.use("/api", orderOfBusinessRoutes);
     this.app.use("/api", documentRoutes);
+    this.app.use("/api", minutesRoutes);
+    this.app.use("/api", orderOfBusinessRoutes);
   }
 
   private initializeDatabase(): void {
