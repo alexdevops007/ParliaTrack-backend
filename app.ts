@@ -8,6 +8,7 @@ import debateRoutes from "./routes/debateRoutes";
 import documentRoutes from "./routes/documentRoutes";
 import minutesRoutes from "./routes/minutesRoutes";
 import orderOfBusinessRoutes from "./routes/orderOfBusinessRoutes";
+import participantRoutes from "./routes/participantRoutes";
 
 class App {
   public app: Application;
@@ -56,6 +57,7 @@ class App {
     this.app.use("/api", documentRoutes);
     this.app.use("/api", minutesRoutes);
     this.app.use("/api", orderOfBusinessRoutes);
+    this.app.use("/api", participantRoutes);
   }
 
   private initializeDatabase(): void {
