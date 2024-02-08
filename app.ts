@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import connectDatabase from "./config/database";
 import orderOfBusinessRoutes from "./routes/orderOfBusinessRoutes";
+import documentRoutes from "./routes/documentRoutes";
 import cors from "cors";
 import morgan from "morgan";
 import helmet from "helmet";
@@ -49,6 +50,7 @@ class App {
     });
 
     this.app.use("/api", orderOfBusinessRoutes);
+    this.app.use("/api", documentRoutes);
   }
 
   private initializeDatabase(): void {
