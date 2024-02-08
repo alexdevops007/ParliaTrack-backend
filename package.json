@@ -2,9 +2,9 @@
   "name": "parliatrack-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.ts",
+  "main": "server.ts",
   "scripts": {
-    "start": "nodemon app.ts"
+    "start": "nodemon server.ts"
   },
   "keywords": [],
   "author": "Alex Simisi Nta",
@@ -21,8 +21,10 @@
   },
   "devDependencies": {
     "@types/colors": "^1.2.1",
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^20.11.16",
     "@types/nodemon": "^1.19.6",
     "nodemon": "^3.0.3"

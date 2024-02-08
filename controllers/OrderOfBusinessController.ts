@@ -11,7 +11,7 @@ export class OrderOfBusinessController {
       await newOrderOfBusiness.save();
       res.status(201).json(newOrderOfBusiness);
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(500).send((error as Error).message);
     }
   }
 
@@ -21,7 +21,7 @@ export class OrderOfBusinessController {
         await OrderOfBusiness.find();
       res.status(200).json(orderOfBusinessList);
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(500).send((error as Error).message);
     }
   }
 
@@ -36,7 +36,7 @@ export class OrderOfBusinessController {
         res.status(404).send("Order of Business not found.");
       }
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(500).send((error as Error).message);
     }
   }
 
@@ -56,7 +56,7 @@ export class OrderOfBusinessController {
         res.status(404).send("Order of Business not found.");
       }
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(500).send((error as Error).message);
     }
   }
 
@@ -71,7 +71,7 @@ export class OrderOfBusinessController {
         res.status(404).send("Order of Business not found.");
       }
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(500).send((error as Error).message);
     }
   }
 }
