@@ -4,5 +4,5 @@ import "colors";
 const port = 4500;
 
 app.listen(port, () => {
-  console.log(`Server is running o port ${port}`.bgBlue.bold);
+  console.log(`ParliaTrack Server is running on port ${port}`.bgBlue.bold);
 });
