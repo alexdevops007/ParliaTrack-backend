@@ -2,7 +2,6 @@ import cors from "cors";
 import express, { Application, Express } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
-import expressOasGenerator from "express-oas-generator"
 
 import connectDatabase from "./config/database";
 import debateRoutes from "./routes/debateRoutes";
@@ -20,7 +19,6 @@ class App {
     this.initializeMiddlewares();
     this.initializeRoutes();
     this.initializeDatabase();
-    this.initializeOpenApiDocumentation();
   }
 
   private initializeMiddlewares(): void {
@@ -66,12 +64,6 @@ class App {
 
   private initializeDatabase(): void {
     connectDatabase();
-  }
-
-  private initializeOpenApiDocumentation(): void {
-    const typeApp: Express = this.app as Express
-
-    expressOasGenerator.init(typeApp, {});
   }
 }
 
