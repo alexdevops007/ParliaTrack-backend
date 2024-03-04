@@ -2,6 +2,8 @@ import cors from "cors";
 import express, { Application, Express } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import swaggerUi from "swagger-ui-express"
+import swaggerDocument from "./docs/swagger.json"
 
 import connectDatabase from "./config/database";
 import debateRoutes from "./routes/debateRoutes";
@@ -19,6 +21,7 @@ class App {
     this.initializeMiddlewares();
     this.initializeRoutes();
     this.initializeDatabase();
+    this.initializeSwaggerUI();
   }
 
   private initializeMiddlewares(): void {
@@ -64,6 +67,15 @@ class App {
 
   private initializeDatabase(): void {
     connectDatabase();
+  }
+
+  private initializeSwaggerUI(): void {
+    // Serve Swagger UI at /docs
+    this.app.use(
+      "/api/v1/api-docs",
+      swaggerUi.serve,
+      swaggerUi.setup(swaggerDocument)
+    );
   }
 }
 

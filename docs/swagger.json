@@ -1,13 +1,11 @@
 {
   "definitions": {},
   "info": {
-    "title": "parliatrack-backend",
+    "title": "API REST - ParliaTrack Documentation",
     "version": "1.0.0",
-    "license": {
-      "name": "ASN"
-    },
-    "description": "Specification JSONs: [v2](/api-spec/v2), [v3](/api-spec/v3)."
+    "description": "API REST pour la gestion des sessions parlementaires"
   },
+  "basePath": "/api/v1",
   "paths": {
     "/": {
       "get": {
