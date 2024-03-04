@@ -6,6 +6,7 @@
     "description": "API REST pour la gestion des sessions parlementaires"
   },
   "basePath": "/api/v1",
+  "host": "localhost:4500",
   "paths": {
     "/": {
       "get": {

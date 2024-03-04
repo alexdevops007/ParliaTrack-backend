@@ -47,22 +47,18 @@ class App {
 
   private initializeRoutes(): void {
     // Add your routes here
-    this.app.get("/", (req, res) => {
-      res.send("Bienvenue sur l'api ParliaTrack");
-    });
-
-    this.app.get("/api", (req, res) => {
+    this.app.get("/api/v1", (req, res) => {
       res.status(200).json({
         message: "Bienvenue sur l'api ParliaTrack",
       });
     });
 
-    this.app.use("/api", debateRoutes);
-    this.app.use("/api", documentRoutes);
-    this.app.use("/api", eventRoutes);
-    this.app.use("/api", minutesRoutes);
-    this.app.use("/api", orderOfBusinessRoutes);
-    this.app.use("/api", participantRoutes);
+    this.app.use("/api/v1", debateRoutes);
+    this.app.use("/api/v1", documentRoutes);
+    this.app.use("/api/v1", eventRoutes);
+    this.app.use("/api/v1", minutesRoutes);
+    this.app.use("/api/v1", orderOfBusinessRoutes);
+    this.app.use("/api/v1", participantRoutes);
   }
 
   private initializeDatabase(): void {
