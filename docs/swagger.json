@@ -5,21 +5,37 @@
     "version": "1.0.0",
     "description": "API REST pour la gestion des sessions parlementaires"
   },
-  "basePath": "/api/v1",
+  "basePath": "/api",
   "host": "localhost:4500",
-  "paths": {
-    "/": {
-      "get": {
-        "summary": "/",
-        "consumes": ["application/json"],
-        "parameters": [],
-        "responses": {},
-        "tags": []
-      }
+  "tags": [
+    {
+      "name": "debates",
+      "description": "Methods for managing debates"
     },
+    {
+      "name": "documents",
+      "description": "Methods for managing documents"
+    },
+    {
+      "name": "events",
+      "description": "Methods for managing events"
+    },
+    {
+      "name": "minutes",
+      "description": "Methods for managing minutes"
+    },
+    {
+      "name": "order of business",
+      "description": "Methods for managing order of business"
+    },
+    {
+      "name": "participants",
+      "description": "Methods for managing participants"
+    }
+  ],
+  "paths": {
     "/api": {
       "get": {
-        "summary": "/api",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
@@ -28,23 +44,25 @@
     },
     "/api/debates": {
       "post": {
-        "summary": "/api/debates",
         "consumes": ["application/json"],
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true
+          }
+        ],
         "responses": {},
-        "tags": []
+        "tags": ["debates"]
       },
       "get": {
-        "summary": "/api/debates",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": ["debates"]
       }
     },
     "/api/debates/{id}": {
       "get": {
-        "summary": "/api/debates/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -54,10 +72,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["debates"]
       },
       "delete": {
-        "summary": "/api/debates/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -67,12 +84,11 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["debates"]
       }
     },
     "/api/debates/{id}/add-note": {
       "put": {
-        "summary": "/api/debates/{id}/add-note",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -82,12 +98,11 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["debates"]
       }
     },
     "/api/debates/{id}/mark-key-moment": {
       "put": {
-        "summary": "/api/debates/{id}/mark-key-moment",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -97,30 +112,27 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["debates"]
       }
     },
     "/api/documents/upload": {
       "post": {
-        "summary": "/api/documents/upload",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": ["documents"]
       }
     },
     "/api/documents": {
       "get": {
-        "summary": "/api/documents",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": ["documents"]
       }
     },
     "/api/documents/{id}": {
       "get": {
-        "summary": "/api/documents/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -130,10 +142,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["documents"]
       },
       "delete": {
-        "summary": "/api/documents/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -143,12 +154,11 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["documents"]
       }
     },
     "/api/documents/{id}/download": {
       "get": {
-        "summary": "/api/documents/{id}/download",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -158,28 +168,25 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["documents"]
       }
     },
     "/api/events": {
       "post": {
-        "summary": "/api/events",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": ["events"]
       },
       "get": {
-        "summary": "/api/events",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": ["events"]
       }
     },
     "/api/events/{id}": {
       "get": {
-        "summary": "/api/events/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -189,10 +196,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["events"]
       },
       "put": {
-        "summary": "/api/events/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -202,10 +208,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["events"]
       },
       "delete": {
-        "summary": "/api/events/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -215,28 +220,25 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["events"]
       }
     },
     "/api/minutes": {
       "post": {
-        "summary": "/api/minutes",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": ["minutes"]
       },
       "get": {
-        "summary": "/api/minutes",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": ["minutes"]
       }
     },
     "/api/minutes/{id}": {
       "get": {
-        "summary": "/api/minutes/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -246,10 +248,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["minutes"]
       },
       "delete": {
-        "summary": "/api/minutes/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -259,12 +260,11 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["minutes"]
       }
     },
     "/api/minutes/{id}/annotate": {
       "put": {
-        "summary": "/api/minutes/{id}/annotate",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -274,12 +274,11 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["minutes"]
       }
     },
     "/api/minutes/{id}/publish": {
       "put": {
-        "summary": "/api/minutes/{id}/publish",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -289,21 +288,19 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["minutes"]
       }
     },
     "/api/order-of-business": {
       "post": {
-        "summary": "/api/order-of-business",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": ["order of business"]
       }
     },
     "/api/order-of-business/{id}": {
       "get": {
-        "summary": "/api/order-of-business/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -313,10 +310,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["order of business"]
       },
       "put": {
-        "summary": "/api/order-of-business/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -326,10 +322,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["order of business"]
       },
       "delete": {
-        "summary": "/api/order-of-business/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -339,21 +334,19 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["order of business"]
       }
     },
     "/api/participants": {
       "post": {
-        "summary": "/api/participants",
         "consumes": ["application/json"],
         "parameters": [],
         "responses": {},
-        "tags": []
+        "tags": ["participants"]
       }
     },
     "/api/participants/{id}": {
       "get": {
-        "summary": "/api/participants/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -363,10 +356,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["participants"]
       },
       "put": {
-        "summary": "/api/participants/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -376,10 +368,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["participants"]
       },
       "delete": {
-        "summary": "/api/participants/{id}",
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -389,10 +380,9 @@
           }
         ],
         "responses": {},
-        "tags": []
+        "tags": ["participants"]
       }
     }
   },
-  "swagger": "2.0",
-  "tags": []
+  "swagger": "2.0"
 }
